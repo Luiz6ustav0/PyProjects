@@ -2,7 +2,7 @@
 A couple fun projects to work with using Python.
 _______________________________________________
 
-<b><i>Cipher.py</i></b> -> This a simple implementation of Caesar's cipher(Shift cipher, Caesar's code or Caesar shift). It's a simple encryption technique based on substitution, each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. There are several possible variations that greatly increase the level on encryption and thus increase the security.
+<b><i>Cipher.py</i></b> -> This a simple implementation of Caesar's cipher(Shift cipher, Caesar's code or Caesar shift). It's a simple encryption technique based on substitution, each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet(The code has some comments on that). There are several possible variations that greatly increase the level on encryption and thus increase the security.
 
 <b><i>PoemFinder.py</i></b> -> This a webscrapping project. It asks what is the topic you want and then searches the website(You can change that) for quotes, poems and more about that topic. After scanning one page it'll ask if the user wants to scan more pages or if one is good enough. In the end, a file will be written with the scanned quotes, texts and poems.
 
