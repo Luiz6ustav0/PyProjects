@@ -12,8 +12,9 @@ in the alphabet and decrypt any message"""
 import random # we are using it to give files random names
 
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'  # we are going to use this in our functions to shift the letters
-punctuation = '!.,?-_><:|~^ '  # makes sure that we don't end up messing up because of the punctuation or spaces
+alphabet = 'abcdefghijklmnopqrstuvwxyz'      # we are going to use this in our functions to shift the letters
+punctuation = '!.,?-_><:|~^@#$%1234567890 '  # makes sure that we don't end up messing up because of the 
+                                             # punctuation, special signs or spaces
 
 
 def encrypt(message, offset):
