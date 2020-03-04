@@ -3,19 +3,20 @@ import requests
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 from wordcloud import WordCloud, STOPWORDS
-from PIL import Image
+# from PIL import Image
 import numpy as np
 
+# The PIL library is used if you want to apply a mask to the wordcloud
 
 def start(url):
 
     word_list = []
-    for num in range(0, 13):
+    for num in range(0, 60):
         r_url = url + str(num)
         source_code = requests.get(r_url).text
         soup = BeautifulSoup(source_code, features='html.parser')
         print("\nPage: {page_number}".format(page_number=num))
-        for soup_text in soup.findAll('h2', {'class': 'title2'}):
+        for soup_text in soup.findAll('span', {'class':'lx-stream-post__header-text gs-u-align-middle'}):
             content = soup_text.text
             words = content.lower().split()
             for each_word in words:
@@ -35,7 +36,8 @@ def clean_word_list(word_list): # this is where we clean the text we got from th
                   'pela', 'mais', 'alta', 'setor', 'está', 'vez', 'sobre', 'vai', 'r$', 'não', '1º', 'trimestre', 'primeiro'
                   'segundo', 'terceiro', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'º', 'janeiro', 'fevereiro', 'março',
                   'abril', 'maio', 'junho', 'julho', 'agosto', 'outubro', 'setembro', 'novembro', 'dezembro', 'tri', 'ª', 'dá'
-                  'até', 'quer', 'pós', 'será', 'deverão', 'subir', 'das', 'dos', 'às', 'são', 'pode', 'dar', 'até', 'bi']
+                  'até', 'quer', 'pós', 'será', 'deverão', 'subir', 'das', 'dos', 'às', 'são', 'pode', 'dar', 'até', 'bi', 'quem',
+                  'entre', 'meio', 'há', 'como']
 
     for word in word_list:
         for i in word:
@@ -51,8 +53,8 @@ def clean_word_list(word_list): # this is where we clean the text we got from th
     # defining and creating the word cloud here
 
     zz = ' '.join(clean_list) # for the wordcloud we don't pass a dictionary, I simply put everything together separated by spaces and the library does the counting for us
-    mask = np.array(Image.open('brazil.png'))
-    cloud = WordCloud(background_color="white", width=1920, height=1080, mask = mask, max_words=1000).generate(zz)
+    # mask = np.array(Image.open('brazil.png'))
+    cloud = WordCloud(background_color="white", width=1920, height=1080, max_words=1000).generate(zz) #m mask=mask
     plt.figure(figsize=(16,9),facecolor = 'white', edgecolor='blue')
     plt.imshow(cloud)
     plt.axis('off')
@@ -108,4 +110,4 @@ def dic_plot(word_list, count_list): # this function is making a bar line and a 
     plt.show()
 
 
-start('https://www.valor.com.br/ultimas-noticias?page=')
+start(r'https://www.bbc.com/portuguese/topics/cz74k717pw5t/page/')

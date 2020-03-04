@@ -1,5 +1,5 @@
 # PyProjects
-A couple fun beginner projects to work with using Python.
+<i>A couple fun beginner projects to work with using Python.</i>
 _______________________________________________
 
 <b><i>Cipher.py</i></b> -> This a simple implementation of Caesar's cipher(Shift cipher, Caesar's code or Caesar shift). It's a simple encryption technique based on substitution, each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet(The code has some comments on that). There are several possible variations that greatly increase the level on encryption and thus increase the security.
