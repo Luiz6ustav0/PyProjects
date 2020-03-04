@@ -6,7 +6,6 @@ from wordcloud import WordCloud, STOPWORDS
 from PIL import Image
 import numpy as np
 
-# The Pillow library is only used if you want to apply a mask to the wordcloud
 
 def get_words(url, number_of_pages):
     word_list = []
@@ -99,7 +98,6 @@ def plot_words_and_count(word_list, count_list): # this function is making a bar
 words = get_words(r'https://www.bbc.com/portuguese/topics/cz74k717pw5t/page/', 30)
 clean_list = clean_word_list(words)
 create_wordcloud(clean_list)
-
 user_choice = input('Would you like to get a graph of the the top words versus how many times they appeared? (Y/n)')
 if user_choice != 'n' and user_choice != 'N':
     top_w, top_w_c = get_top_words_and_count(clean_list)
