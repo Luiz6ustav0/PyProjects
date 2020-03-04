@@ -3,10 +3,10 @@ import requests
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 from wordcloud import WordCloud, STOPWORDS
-# from PIL import Image
+from PIL import Image
 import numpy as np
 
-# The PIL library is used if you want to apply a mask to the wordcloud
+# The Pillow library is only used if you want to apply a mask to the wordcloud
 
 def start(url):
 
@@ -37,7 +37,7 @@ def clean_word_list(word_list): # this is where we clean the text we got from th
                   'segundo', 'terceiro', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'º', 'janeiro', 'fevereiro', 'março',
                   'abril', 'maio', 'junho', 'julho', 'agosto', 'outubro', 'setembro', 'novembro', 'dezembro', 'tri', 'ª', 'dá'
                   'até', 'quer', 'pós', 'será', 'deverão', 'subir', 'das', 'dos', 'às', 'são', 'pode', 'dar', 'até', 'bi', 'quem',
-                  'entre', 'meio', 'há', 'como']
+                  'entre', 'meio', 'há', 'como', 'após', 'foi']
 
     for word in word_list:
         for i in word:
@@ -53,8 +53,8 @@ def clean_word_list(word_list): # this is where we clean the text we got from th
     # defining and creating the word cloud here
 
     zz = ' '.join(clean_list) # for the wordcloud we don't pass a dictionary, I simply put everything together separated by spaces and the library does the counting for us
-    # mask = np.array(Image.open('brazil.png'))
-    cloud = WordCloud(background_color="white", width=1920, height=1080, max_words=1000).generate(zz) #m mask=mask
+    mask = np.array(Image.open('brazil.png'))
+    cloud = WordCloud(background_color="white", mask=mask, width=1920, height=1080, max_words=1000).generate(zz) 
     plt.figure(figsize=(16,9),facecolor = 'white', edgecolor='blue')
     plt.imshow(cloud)
     plt.axis('off')
